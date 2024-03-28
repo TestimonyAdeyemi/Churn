@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import matplotlib.pyplot as plt
-import seaborn as sns
+# import matplotlib.pyplot as plt
+# import seaborn as sns
 
 
 
@@ -37,25 +37,25 @@ def predict_churn(customer_data):
     return prediction
 
 # Function to visualize churn patterns
-def visualize_churn(df):
-    """
-    Visualizes churn patterns based on different features.
+# def visualize_churn(df):
+#     """
+#     Visualizes churn patterns based on different features.
 
-    Parameters:
-    - df: DataFrame containing churn prediction data.
-    """
-    # Visualize distribution of churn across contract type
-    st.subheader('Distribution of Churn by Contract Type')
-    contract_churn = df.groupby('Contract')['Churn'].value_counts(normalize=True).unstack()
-    st.bar_chart(contract_churn)
+#     Parameters:
+#     - df: DataFrame containing churn prediction data.
+#     """
+#     # Visualize distribution of churn across contract type
+#     st.subheader('Distribution of Churn by Contract Type')
+#     contract_churn = df.groupby('Contract')['Churn'].value_counts(normalize=True).unstack()
+#     st.bar_chart(contract_churn)
 
-    # Visualize churn rate by tenure
-    st.subheader('Churn Rate by Tenure')
-    churn_rate_by_tenure = df.groupby('tenure')['Churn'].mean()
-    plt.plot(churn_rate_by_tenure.index, churn_rate_by_tenure.values)
-    plt.xlabel('Tenure')
-    plt.ylabel('Churn Rate')
-    st.pyplot()
+#     # Visualize churn rate by tenure
+#     st.subheader('Churn Rate by Tenure')
+#     churn_rate_by_tenure = df.groupby('tenure')['Churn'].mean()
+#     plt.plot(churn_rate_by_tenure.index, churn_rate_by_tenure.values)
+#     plt.xlabel('Tenure')
+#     plt.ylabel('Churn Rate')
+#     st.pyplot()
 
 # Main Streamlit application
 def main():
